@@ -24,14 +24,11 @@ public class Product {
 
     private String ean;
 
-    @Enumerated(EnumType.STRING)
-    private SalesChannel source;
+    @ManyToOne
+    @JoinColumn(name = "channel_id")
+    private Channel channel;
 
     private Instant createdAt;
 
     private Instant updatedAt;
-
-    public enum SalesChannel {
-        SHOPIFY, AMAZON, EBAY
-    }
 }

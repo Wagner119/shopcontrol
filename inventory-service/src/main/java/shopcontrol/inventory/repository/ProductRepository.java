@@ -9,6 +9,9 @@ import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("SELECT p FROM Product p WHERE p.sku = :sku")
     Optional<Product> findBySku(@Param("sku") String sku);
+
+    Optional<Product> findByName(String name);
+
+    Optional<Product> findByEan(String ean);
 }
